@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const body = document.body;
+        function getUrlInfo() {
+            console.log('发送请求！')
+        }
+        body.onmousemove = throttled1(getUrlInfo,2000);
+        //scroll
+        //resize
+        //时间戳
+        //头事件有，尾部事件没有
+        function throttled(func, wait) {
+            var provious = 0;
+            return function() {
+                var now = new Date().getTime();
+                if(now -provious > wait) {
+                    func();
+                    provious = now;
+                }
+            }
+        }
+
+        //定时器实现
+        //没有头事件  尾部事件有
+        function throttled1(func, wait) {
+            var timeout = null;
+            return function() {
+                if (!timeout) {
+                    timeout = setTimeout(() => {
+                        func();
+                        timeout = null;
+                    },wait);
+                }
+            }
+        }
+    </script>
+    <script src="./throttled.js"></script>
+</body>
+</html>

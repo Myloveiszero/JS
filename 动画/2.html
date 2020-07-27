@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+          #el {
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="el"></div>
+    <button id="pause" onclick="pause()">pause</button>
+    <script>
+        const el = document.getElementById("el");
+        let end = 400, duration = 5000, start = 0;
+        let startTime = Date.now();
+        //frame
+        // requestAnimationFrame//在每一帧里请求执行一个方法
+        //60Hz 1000  /  60 = 16.66666ms
+        // setInterval(() => { console.log(1)}, 16);//固定时间执行方法
+        function tick() {
+            let hasPassed = Date.now() -startTime;
+            let progress = hasPassed / duration;
+            let x = progress * (end - start);
+            if (progress >= 1) {
+                el.style.transform = `translate3d(${end}px, 0, 0)`;          
+                return;
+            }
+            el.style.transform = `translate3d(${x}px, 0, 0)`;
+           rafId = requestAnimationFrame(tick);
+        }
+        var rafId = null;
+         rafId = requestAnimationFrame(tick);
+        var pauseTime = null;
+        function pause() {
+            pauseTime = Date.now();
+            cancelAnimationFrame(rafId);
+        }
+        function resume() {
+            startTime += Date.now() -pauseTime;
+            rafId = requestAnimationFrame(tick);
+        }
+    </script>
+</body>
+</html>

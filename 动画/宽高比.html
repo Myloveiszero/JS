@@ -1,0 +1,39 @@
+<style>
+/* 宽高： 16:9*/
+.ration {
+    width: 100%;
+    outline: 1px solid red;
+    /* 用padding把高度撑开 */
+    /*padding-op： 基于宽计算 */
+    /*56.25%*/
+    padding-top: calc( 100% * 9 / 16);
+    height: 0;
+    position: relative;
+}
+.ration > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+</style>
+<div class="ration">
+    <div class="">content</div>
+</div>
+<script>
+    let obj = {
+        a: 1,
+        toString() {
+            return 1;
+        },
+        valueOf() {
+            return 2;
+        },
+        //复杂数据类型  类型转换的时候：
+        //es6 之前 toString || valueOf  es6： toPrimitive
+        [Symbol.toPrimitive]: () => {
+            return  123;
+        }
+    };
+    let res = obj + 1;
+    console.log(res);
+</script>

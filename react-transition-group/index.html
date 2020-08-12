@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Transition</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            left: 50%;
+            top: 50%;
+        }
+
+        .alert-enter {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .alert-enter-active {
+            opacity: 1;
+            /* transform：scale(1) */
+            transform: translateX(0);
+            transition: opacity 300ms, transform 300ms;
+        }
+
+        .alert-exit {
+            opacity: 1;
+        }
+
+        .alert-exit-active {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 300ms, transform 300ms;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        const box = document.querySelector('.box');
+        box.classList.add('alret-enter');
+        box.clientHeight; //？？ 重排 force relayout
+        //为了给我们提供最准确的 大小 位置 信息 （因为前面可能有会影响box大小的操作）
+        // setTimeout(() => {
+        //     box.classList.add('alert-enter-active');
+        // }, 30);
+        box.classList.add('alert-enter-active');
+
+        document.body.style.backgroundColor("red");  
+        document.body.style.backgroundColor("blue");
+    </script>
+</body>
+
+</html>

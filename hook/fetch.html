@@ -1,0 +1,25 @@
+<script>
+    const _fetch = window.fetch;
+   window.fetch = function fetch(url, options) {
+   //    return new Promise((resolve, reject) => {
+   //     _fetch(url, options)
+   //     .then(res => {
+   //         console.log('请求成功');
+   //         resolve(res);
+   //     })
+   //     .catch(reject);
+   //     })
+       return _fetch(url, options)
+       .then((res) => {
+           console.log(res.url, '请求成功了')
+           return res;
+       })
+   }
+   fetch('https://www.fastmock.site/mock/32482a864ed25cf9f0740c23c7584e8c/test-interface/test1')
+   .then((res) =>{
+       return res.json();
+   } )
+   .then(res => {
+       console.log(res)
+   })
+</script>

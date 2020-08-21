@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/?xss=<script>alert(document.cookie)</script>">xss1</a>
+    <a href="/?xss=<style>a{color: red}</style>">xss2</a>
+    <a href="/?xss = <iframe>src='https://cn.bing.com'</iframe>">xss3</a>
+    首页
+    <%- username %>
+    <%= username %>
+    <%- xss %>
+    <%- dataFromDB %>
+    <!-- <%- js %> -->
+    <!-- &lt; -->
+    <!-- &nbsp; -->
+    <script>
+        // <%- js %>
+    </script>
+</body>
+</html>

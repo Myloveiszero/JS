@@ -1,0 +1,45 @@
+Arguments: 
+  /usr/local/bin/node /Users/zhaomeng/npm/bin/yarn add --dev @babel/preset-typescript
+
+PATH: 
+  /Users/zhaomeng/Downloads/mongodb/bin:/Users/zhaomeng/.autojump/bin:/Users/zhaomeng/.npm-global/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/zhaomeng/Downloads/mongodb/bin:/Users/zhaomeng/.autojump/bin:/Users/zhaomeng/.npm-global/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/Users/zhaomeng/npm/bin:/usr/local/mysql/bin:/Users/zhaomeng/npm/bin:/usr/local/mysql/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  12.16.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EINVAL: invalid argument, unlink '/Users/zhaomeng/Downloads/personal-project/blog/fe-structure/fe-test/2.jest-config/node_modules/has-values/node_modules/kind-of'
+
+npm manifest: 
+  {
+    "name": "2.jest-config",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@babel/preset-env": "^7.9.6",
+      "babel-jest": "^26.0.1",
+      "jest": "^26.0.1"
+    },
+    "dependencies": {
+      "axios": "^0.19.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
